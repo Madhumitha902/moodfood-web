@@ -1,0 +1,212 @@
+styles.css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image:url(https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover; /* Scales image to cover the entire viewport */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* Navigation Styles */
+nav {
+    margin-top: 10px;
+}
+
+nav button {
+    margin: 0 10px;
+    padding: 5px 15px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #777;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    text-align: center;
+
+}
+
+
+.meal-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px auto;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.meal-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.meal-card p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.meal-card a {
+    display: inline-block;
+    margin: 10px 0;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.meal-card a:hover {
+    text-decoration: underline;
+}
+.food-images {
+    margin-top: 10px;
+}
+
+.food-images img {
+    width: 400px; /* Updated width */
+    height: 200px; /* Updated height */
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Mood Input Styles */
+.mood-input {
+    margin: 20px 0;
+}
+
+.mood-input h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.emoji-list .emoji {
+    font-size: 2.5em;
+    cursor: pointer;
+    margin: 0 15px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.emoji-list .emoji:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+
+.meal-suggestions {
+    margin: 20px 0;
+
+}
+
+.meal-suggestions h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.meal-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px auto;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.meal-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.meal-card p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.meal-card a {
+    display: inline-block;
+    margin: 10px 0;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.meal-card a:hover {
+    text-decoration: underline;
+}
+
+.meal-card label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.meal-card select {
+    padding: 5px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav button {
+        margin: 5px;
+        padding: 5px 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .emoji-list .emoji {
+        font-size: 2em;
+        margin: 0 10px;
+    }
+
+    .meal-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
