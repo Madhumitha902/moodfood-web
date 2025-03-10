@@ -1,0 +1,38 @@
+Recommendations.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations-mood food app</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Food Recommendations</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='profile.html'">Profile</button>
+            <button onclick="window.location.href='login.html'">Login</button>
+        </nav>
+    </header>
+    <main>
+        <section class="mood-input">
+            <h2>Select Your Mood</h2>
+            <div class="emoji-list">
+                <span onclick="selectMood('happy')" class="emoji">😊</span>
+                <span onclick="selectMood('sad')" class="emoji">😢</span>
+                <span onclick="selectMood('tired')" class="emoji">😴</span>
+                <span onclick="selectMood('angry')" class="emoji">😡</span>
+                <span onclick="selectMood('excited')" class="emoji">🤩</span>
+                <span onclick="selectMood('stressed')" class="emoji">😰</span>
+            </div>
+        </section>
+        <section class="meal-suggestions" id="mealSuggestions">
+            <h2>Recommended Meals</h2>
+            <!-- Meal suggestions will be dynamically added here -->
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
