@@ -1,31 +1,55 @@
-index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Mood Food App</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodFood - Food Based on Your Mood</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Mood Food App</h1>
-        <nav>
-            <button onclick="window.location.href='index.html'">Home</button>
-            <button onclick="window.location.href='recommendations.html'">Recommendations</button>
-            <button onclick="window.location.href='profile.html'">Profile</button>
-            <button onclick="window.location.href='login.html'">Login</button>
-            
-        </nav>
-    </header>
-    <main>
-        <section class="welcome">
-            <h2>Welcome!</h2>
-            <p>"Welcome to Mood Food, your go-to app for finding the perfect meal based on how you feel! Whether you’re happy, sad, tired, 
-                or stressed, just pick your mood with a fun emoji, and we’ll suggest foods like ‘Pizza’ or ‘Herbal Tea’—complete with pictures, calories, 
-                and links to get them. Search for your favorites, rate our ideas, and enjoy a tasty experience wrapped in a chocolate cake vibe. Simple, fun, and made for you!"</p>
-        </section>
-    </main>
-    <script src="../js/script.js" defer></script>
+  <header>
+    <nav>
+      <h1>MoodFood</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recommendations.html">Recommendations</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Discover the Perfect Food for Your Mood</h2>
+      <p>
+        MoodFood helps you explore meal ideas based on how you feel.
+        Whether you are happy, tired, stressed, or excited, we suggest food that matches your mood.
+      </p>
+      <div class="hero-buttons">
+        <a href="recommendations.html" class="btn">Get Recommendations</a>
+        <a href="signup.html" class="btn secondary-btn">Create Account</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>Why Use MoodFood?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Mood-Based Suggestions</h3>
+          <p>Choose your mood and instantly get matching food recommendations.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Simple and Fast</h3>
+          <p>Easy-to-use design with quick access to meals and recipe links.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Personal Experience</h3>
+          <p>Save your profile and explore foods that fit your preferences.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
