@@ -278,4 +278,83 @@ main {
 .feature-card h3 {
   margin-bottom: 10px;
 }
+    .recommendations-page {
+  padding: 40px 20px;
+}
+
+.recommendations-hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.recommendations-hero h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.recommendations-hero p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.mood-section {
+  margin-bottom: 40px;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mood-card {
+  padding: 18px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mood-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.meal-suggestions {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.meal-suggestions h2 {
+  margin-bottom: 20px;
+}
+
+.meal-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 15px auto;
+  max-width: 350px;
+}
+
+.meal-card h3 {
+  margin-bottom: 10px;
+}
+
+.meal-card p {
+  margin-bottom: 10px;
+}
+
+.meal-card a {
+  text-decoration: none;
+  font-weight: bold;
+}
 }
