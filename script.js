@@ -46,6 +46,17 @@ function updateNavigation() {
 document.addEventListener("DOMContentLoaded", () => {
   requireLogin();
   loadProfileData();
+  updateNavigation();
+
+    const navLogout = document.getElementById("navLogout");
+  if (navLogout) {
+    navLogout.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("userEmail");
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+  }
 
     const logoutBtn = document.getElementById("logoutBtn");
   if (logoutBtn) {
