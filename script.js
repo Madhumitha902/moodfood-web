@@ -1,10 +1,3 @@
-localStorage.setItem("lastMood", mood);
-function loadLastMood() {
-  const lastMood = localStorage.getItem("lastMood");
-  if (lastMood) {
-    selectMood(lastMood);
-  }
-}
 function getCurrentPage() {
   return window.location.pathname.split("/").pop().toLowerCase();
 }
@@ -65,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   requireLogin();
   loadProfileData();
   updateNavigation();
-  loadLastMood();
+  
 
   const navLogout = document.getElementById("navLogout");
   if (navLogout) {
