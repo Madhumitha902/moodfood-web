@@ -1,24 +1,39 @@
-Signup.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Mood Food App</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - MoodFood</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <main>
-        <section class="signup-form">
-            <h2>Sign Up</h2>
-            <form id="signupForm">
-                <input type="email" id="signupEmail" placeholder="Email" required>
-                <input type="password" id="signupPassword" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="login.html">Log in here</a>.</p>
-        </section>
-    </main>
-    <script src="../js/script.js" defer></script>
+  <header>
+    <nav>
+      <h1>MoodFood</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recommendations.html">Recommendations</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="form-page">
+    <section class="auth-container">
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="Enter your email" required />
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Create a password" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+  </main>
 </body>
 </html>
