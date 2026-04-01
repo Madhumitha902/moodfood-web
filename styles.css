@@ -1,229 +1,76 @@
-styles.css
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image:url(https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-    background-size: cover; /* Scales image to cover the entire viewport */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents tiling */
-    background-attachment: fixed; /* Keeps background fixed while scrolling */
-    line-height: 1.6;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  line-height: 1.6;
+}
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8em;
-}
-
-/* Navigation Styles */
 nav {
-    margin-top: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-nav button {
-    margin: 0 10px;
-    padding: 5px 15px;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+nav h1 {
+  font-size: 1.7rem;
+  color: #ff6b6b;
 }
 
-nav button:hover {
-    background-color: #777;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-/* Main Content Styles */
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ff6b6b;
+}
+
 main {
-    padding: 20px;
-    text-align: center;
-
+  min-height: calc(100vh - 80px);
 }
 
-
-.meal-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px auto;
-    width: 300px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.meal-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.meal-card p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.meal-card a {
-    display: inline-block;
-    margin: 10px 0;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.meal-card a:hover {
-    text-decoration: underline;
-}
-.food-images {
-    margin-top: 10px;
-}
-
-.food-images img {
-    width: 400px; /* Updated width */
-    height: 200px; /* Updated height */
-    object-fit: cover;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* Mood Input Styles */
-.mood-input {
-    margin: 20px 0;
-}
-
-.mood-input h2 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.emoji-list .emoji {
-    font-size: 2.5em;
-    cursor: pointer;
-    margin: 0 15px;
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-.emoji-list .emoji:hover {
-    transform: scale(1.2); /* Slight zoom on hover */
-}
-
-
-.meal-suggestions {
-    margin: 20px 0;
-
-}
-
-.meal-suggestions h2 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.meal-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px auto;
-    width: 300px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.meal-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.meal-card p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.meal-card a {
-    display: inline-block;
-    margin: 10px 0;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.meal-card a:hover {
-    text-decoration: underline;
-}
-
-.meal-card label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #333;
-}
-
-.meal-card select {
-    padding: 5px;
-    width: 100px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    nav button {
-        margin: 5px;
-        padding: 5px 10px;
-    }
-
-    .search-bar input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .search-bar button {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .emoji-list .emoji {
-        font-size: 2em;
-        margin: 0 10px;
-    }
-
-    .meal-card {
-        width: 100%;
-        max-width: 300px;
-    }
-    .hero {
+.hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px 50px;
 }
 
 .hero h2 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   margin-bottom: 15px;
 }
 
 .hero p {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 25px;
-  line-height: 1.6;
   font-size: 1.05rem;
+  color: #555;
 }
 
 .hero-buttons {
@@ -233,26 +80,32 @@ main {
   flex-wrap: wrap;
 }
 
-.btn {
+.btn,
+button {
   display: inline-block;
   padding: 12px 22px;
-  background-color: #ff6b6b;
-  color: white;
-  text-decoration: none;
+  border: none;
   border-radius: 8px;
+  background: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  opacity: 0.9;
+.btn:hover,
+button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
 .secondary-btn {
-  background-color: #4ecdc4;
+  background: #4ecdc4;
 }
 
 .features {
-  padding: 50px 20px;
+  padding: 50px 20px 70px;
   text-align: center;
 }
 
@@ -268,18 +121,73 @@ main {
   margin: 0 auto;
 }
 
-.feature-card {
+.feature-card,
+.meal-card,
+.auth-container,
+.mood-card {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card {
+  padding: 22px;
 }
 
 .feature-card h3 {
   margin-bottom: 10px;
 }
-    .recommendations-page {
-  padding: 40px 20px;
+
+.form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-container label {
+  font-weight: 600;
+}
+
+.auth-container input,
+.meal-card select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6dce5;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.auth-container p {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.auth-container a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.recommendations-page {
+  padding: 40px 20px 60px;
 }
 
 .recommendations-hero {
@@ -293,7 +201,6 @@ main {
 }
 
 .recommendations-hero p {
-  font-size: 1rem;
   color: #555;
 }
 
@@ -311,19 +218,13 @@ main {
 
 .mood-card {
   padding: 18px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
   border: none;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .mood-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .meal-suggestions {
@@ -333,16 +234,14 @@ main {
 }
 
 .meal-suggestions h2 {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .meal-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  margin: 15px auto;
-  max-width: 350px;
+  max-width: 360px;
+  margin: 16px auto;
+  padding: 22px;
+  text-align: left;
 }
 
 .meal-card h3 {
@@ -354,7 +253,57 @@ main {
 }
 
 .meal-card a {
+  color: #ff6b6b;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
+
+#logoutBtn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero h2 {
+    font-size: 1.9rem;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+
+  .auth-container {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p,
+  .recommendations-hero p {
+    font-size: 0.95rem;
+  }
+
+  .btn,
+  button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
 }
