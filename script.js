@@ -251,6 +251,7 @@ function selectMood(mood) {
 
 function submitFeedback(mealName, rating) {
   if (rating) {
-    alert(`Thank you for rating ${mealName} with ${rating} stars!`);
+    alert(`Thanks! You rated ${mealName} ${rating} out of 5.`);
   }
+}
 }
