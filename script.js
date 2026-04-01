@@ -25,6 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
   requireLogin();
   loadProfileData();
 
+    const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("userEmail");
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+  }
+
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
