@@ -75,7 +75,7 @@ function selectMood(mood) {
   const mealSuggestions = document.getElementById("mealSuggestions");
   if (!mealSuggestions) return;
 
-  mealSuggestions.innerHTML = `<h2>Recommended Meals</h2>`;
+  mealSuggestions.innerHTML = `<h2>Recommended Meals</h2><p>Here are some suggestions based on your mood:</p>`;
 
   const recommendations = {
     happy: [
