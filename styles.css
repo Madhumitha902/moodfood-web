@@ -306,4 +306,13 @@ button:hover {
   .hero-buttons {
     flex-direction: column;
   }
+  .meal-card strong {
+  color: #333;
+}
+
+.meal-card label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
 }
