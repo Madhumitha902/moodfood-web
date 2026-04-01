@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   requireLogin();
   loadProfileData();
   updateNavigation();
+  loadLastMood();
 
   const navLogout = document.getElementById("navLogout");
   if (navLogout) {
