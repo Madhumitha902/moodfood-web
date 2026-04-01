@@ -20,6 +20,28 @@ function loadProfileData() {
     if (preferencesElement) preferencesElement.textContent = "Mood-based meals";
   }
 }
+function updateNavigation() {
+  const navLinks = document.getElementById("navLinks");
+  if (!navLinks) return;
+
+  const userEmail = localStorage.getItem("userEmail");
+
+  if (userEmail) {
+    navLinks.innerHTML = `
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="#" id="navLogout">Logout</a></li>
+    `;
+  } else {
+    navLinks.innerHTML = `
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    `;
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   requireLogin();
