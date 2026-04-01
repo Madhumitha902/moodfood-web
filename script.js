@@ -1,32 +1,43 @@
+function getCurrentPage() {
+  return window.location.pathname.split("/").pop().toLowerCase();
+}
+
+function getUsers() {
+  return JSON.parse(localStorage.getItem("users")) || [];
+}
+
+function saveUsers(users) {
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 function requireLogin() {
-  const userEmail = localStorage.getItem("userEmail");
-  const currentPage = window.location.pathname.split("/").pop();
+  const protectedPages = ["profile.html", "recommendations.html"];
+  const currentPage = getCurrentPage();
+  const loggedInUser = localStorage.getItem("loggedInUser");
 
-  const publicPages = ["login.html", "signup.html"];
-
-  if (!userEmail && !publicPages.includes(currentPage)) {
+  if (protectedPages.includes(currentPage) && !loggedInUser) {
     window.location.href = "login.html";
   }
 }
 
 function loadProfileData() {
-  const userEmail = localStorage.getItem("userEmail");
-
+  const loggedInUser = localStorage.getItem("loggedInUser");
   const emailElement = document.getElementById("userEmail");
   const preferencesElement = document.getElementById("userPreferences");
 
-  if (userEmail) {
-    if (emailElement) emailElement.textContent = userEmail;
+  if (loggedInUser) {
+    if (emailElement) emailElement.textContent = loggedInUser;
     if (preferencesElement) preferencesElement.textContent = "Mood-based meals";
   }
 }
+
 function updateNavigation() {
   const navLinks = document.getElementById("navLinks");
   if (!navLinks) return;
 
-  const userEmail = localStorage.getItem("userEmail");
+  const loggedInUser = localStorage.getItem("loggedInUser");
 
-  if (userEmail) {
+  if (loggedInUser) {
     navLinks.innerHTML = `
       <li><a href="index.html">Home</a></li>
       <li><a href="recommendations.html">Recommendations</a></li>
@@ -48,21 +59,51 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProfileData();
   updateNavigation();
 
-    const navLogout = document.getElementById("navLogout");
+  const navLogout = document.getElementById("navLogout");
   if (navLogout) {
     navLogout.addEventListener("click", (e) => {
       e.preventDefault();
-      localStorage.removeItem("userEmail");
+      localStorage.removeItem("loggedInUser");
       alert("Logged out successfully!");
       window.location.href = "login.html";
     });
   }
 
-    const logoutBtn = document.getElementById("logoutBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("userEmail");
+      localStorage.removeItem("loggedInUser");
       alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+  }
+
+  const signupForm = document.getElementById("signupForm");
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("signupEmail")?.value.trim().toLowerCase();
+      const password = document.getElementById("signupPassword")?.value.trim();
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      const users = getUsers();
+      const existingUser = users.find((user) => user.email === email);
+
+      if (existingUser) {
+        alert("Account already exists. Please log in.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      users.push({ email, password });
+      saveUsers(users);
+
+      alert("Sign up successful! Please log in.");
       window.location.href = "login.html";
     });
   }
@@ -72,33 +113,25 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const email = document.getElementById("email")?.value.trim();
+      const email = document.getElementById("email")?.value.trim().toLowerCase();
       const password = document.getElementById("password")?.value.trim();
 
-      if (email && password) {
-        localStorage.setItem("userEmail", email);
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      const users = getUsers();
+      const matchedUser = users.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (matchedUser) {
+        localStorage.setItem("loggedInUser", matchedUser.email);
         alert("Login successful!");
         window.location.href = "index.html";
       } else {
-        alert("Please enter both email and password.");
-      }
-    });
-  }
-
-  const signupForm = document.getElementById("signupForm");
-  if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById("signupEmail")?.value.trim();
-      const password = document.getElementById("signupPassword")?.value.trim();
-
-      if (email && password) {
-        localStorage.setItem("userEmail", email);
-        alert("Sign up successful! Please log in.");
-        window.location.href = "login.html";
-      } else {
-        alert("Please enter both email and password.");
+        alert("Invalid email or password.");
       }
     });
   }
@@ -138,7 +171,7 @@ function selectMood(mood) {
         description: "A warm and soothing option when you want something comforting.",
         calories: 150,
         type: "Comfort Food",
-        url: "https://www.panerabread.com/content/panerabread_com/en-us/menu/categories/soups-and-mac.html/"
+        url: "https://www.panerabread.com/"
       }
     ],
     tired: [
@@ -163,7 +196,7 @@ function selectMood(mood) {
         description: "Bold flavors for intense moods.",
         calories: 450,
         type: "Spicy Food",
-        url: "https://www.tacobell.com/food/cravings-value-menu/spicy-potato-soft-taco"
+        url: "https://www.tacobell.com/"
       },
       {
         name: "Chili Chicken",
@@ -244,14 +277,12 @@ function selectMood(mood) {
     mealSuggestions.appendChild(mealCard);
   });
 }
-  } else {
-    mealSuggestions.innerHTML += `<p>No recommendations available for this mood.</p>`;
-  }
-}
 
 function submitFeedback(mealName, rating) {
   if (rating) {
     alert(`Thanks! You rated ${mealName} ${rating} out of 5.`);
   }
 }
-}
+
+window.selectMood = selectMood;
+window.submitFeedback = submitFeedback;
