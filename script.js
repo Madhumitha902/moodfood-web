@@ -108,58 +108,142 @@ function selectMood(mood) {
   const mealSuggestions = document.getElementById("mealSuggestions");
   if (!mealSuggestions) return;
 
-  mealSuggestions.innerHTML = `<h2>Recommended Meals</h2><p>Here are some suggestions based on your mood:</p>`;
-
   const recommendations = {
     happy: [
-      { name: "Chocolate Cake", url: "https://www.allrecipes.com/recipe/8372/black-magic-cake/", calories: 350 },
-      { name: "Pizza", url: "https://www.dominos.com/", calories: 800 }
+      {
+        name: "Chocolate Cake",
+        description: "A sweet dessert for celebrating good moods.",
+        calories: 350,
+        type: "Dessert",
+        url: "https://www.allrecipes.com/recipe/8372/black-magic-cake/"
+      },
+      {
+        name: "Pizza",
+        description: "A fun comfort meal to enjoy when you're feeling great.",
+        calories: 800,
+        type: "Fast Food",
+        url: "https://www.dominos.com/"
+      }
     ],
     sad: [
-      { name: "Ice Cream", url: "https://www.benjerry.com/flavors", calories: 300 },
-      { name: "Soup", url: "https://www.panerabread.com/content/panerabread_com/en-us/menu/categories/soups-and-mac.html/", calories: 150 }
+      {
+        name: "Ice Cream",
+        description: "A classic comfort treat for low-energy days.",
+        calories: 300,
+        type: "Dessert",
+        url: "https://www.benjerry.com/flavors"
+      },
+      {
+        name: "Hot Soup",
+        description: "A warm and soothing option when you want something comforting.",
+        calories: 150,
+        type: "Comfort Food",
+        url: "https://www.panerabread.com/content/panerabread_com/en-us/menu/categories/soups-and-mac.html/"
+      }
     ],
     tired: [
-      { name: "Coffee", url: "https://www.starbucks.com/menu/drinks/coffee", calories: 5 },
-      { name: "Energy Smoothie", url: "https://www.bbcgoodfood.com/recipes/breakfast-super-shake", calories: 200 }
+      {
+        name: "Coffee",
+        description: "A quick energy boost to help you feel refreshed.",
+        calories: 5,
+        type: "Drink",
+        url: "https://www.starbucks.com/menu/drinks/hot-coffees"
+      },
+      {
+        name: "Energy Smoothie",
+        description: "A light but energizing option packed with nutrients.",
+        calories: 200,
+        type: "Healthy Drink",
+        url: "https://www.bbcgoodfood.com/recipes/breakfast-super-shake"
+      }
     ],
     angry: [
-      { name: "Spicy Tacos", url: "https://www.tacobell.com/food/cravings-value-menu/spicy-potato-soft-taco", calories: 450 },
-      { name: "Chili Chicken", url: "https://thehillfoodco.com/s/stl-indian-kitchen/2360-hampton-ave-st.-louis/14a96c44-4e44-46fd-b767-952dfabf18e1/Chicken%2065/6c9614fb-e503-4034-ae07-eb65b0c574b7", calories: 600 }
+      {
+        name: "Spicy Tacos",
+        description: "Bold flavors for intense moods.",
+        calories: 450,
+        type: "Spicy Food",
+        url: "https://www.tacobell.com/food/cravings-value-menu/spicy-potato-soft-taco"
+      },
+      {
+        name: "Chili Chicken",
+        description: "A flavorful, spicy dish for when you want something strong.",
+        calories: 600,
+        type: "Main Course",
+        url: "https://thehillfoodco.com/"
+      }
     ],
     excited: [
-      { name: "Sushi", url: "https://www.sushisamba.com/menu", calories: 300 },
-      { name: "Celebration Cake", url: "https://www.sarahscakeshopstl.com/", calories: 400 }
+      {
+        name: "Sushi",
+        description: "A fresh and fun meal for energetic moments.",
+        calories: 300,
+        type: "Japanese",
+        url: "https://www.sushisamba.com/menu"
+      },
+      {
+        name: "Celebration Cake",
+        description: "Perfect for exciting and joyful moods.",
+        calories: 400,
+        type: "Dessert",
+        url: "https://www.sarahscakeshopstl.com/"
+      }
     ],
     stressed: [
-      { name: "Herbal Tea", url: "https://www.stashtea.com/collections/herbal-tea", calories: 0 },
-      { name: "Mac and Cheese", url: "https://www.kraftmacandcheese.com/recipes", calories: 500 }
+      {
+        name: "Herbal Tea",
+        description: "A calming drink to help you relax.",
+        calories: 0,
+        type: "Drink",
+        url: "https://www.stashtea.com/collections/herbal-tea"
+      },
+      {
+        name: "Mac and Cheese",
+        description: "A creamy comfort dish for stressful days.",
+        calories: 500,
+        type: "Comfort Food",
+        url: "https://www.kraftmacandcheese.com/recipes"
+      }
     ]
   };
 
-  if (recommendations[mood]) {
-    recommendations[mood].forEach((meal) => {
-      const mealCard = document.createElement("div");
-      mealCard.className = "meal-card";
+  const selectedMeals = recommendations[mood];
 
-      mealCard.innerHTML = `
-        <h3>${meal.name}</h3>
-        <p>Calories: ${meal.calories}</p>
-        <a href="${meal.url}" target="_blank">Get it here</a>
-        <br><br>
-        <label>Rate this suggestion:</label>
-        <select onchange="submitFeedback('${meal.name}', this.value)">
-          <option value="">--Select--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      `;
+  mealSuggestions.innerHTML = `
+    <h2>Recommended Meals</h2>
+    <p>Here are some suggestions based on your mood:</p>
+  `;
 
-      mealSuggestions.appendChild(mealCard);
-    });
+  if (!selectedMeals || selectedMeals.length === 0) {
+    mealSuggestions.innerHTML += `<p>No recommendations available for this mood.</p>`;
+    return;
+  }
+
+  selectedMeals.forEach((meal) => {
+    const mealCard = document.createElement("div");
+    mealCard.className = "meal-card";
+
+    mealCard.innerHTML = `
+      <h3>${meal.name}</h3>
+      <p><strong>Type:</strong> ${meal.type}</p>
+      <p><strong>Description:</strong> ${meal.description}</p>
+      <p><strong>Calories:</strong> ${meal.calories}</p>
+      <a href="${meal.url}" target="_blank" rel="noopener noreferrer">View Option</a>
+      <br><br>
+      <label>Rate this suggestion:</label>
+      <select onchange="submitFeedback('${meal.name}', this.value)">
+        <option value="">--Select--</option>
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+    `;
+
+    mealSuggestions.appendChild(mealCard);
+  });
+}
   } else {
     mealSuggestions.innerHTML += `<p>No recommendations available for this mood.</p>`;
   }
