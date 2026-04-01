@@ -1,38 +1,45 @@
-Recommendations.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommendations-mood food app</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recommendations - MoodFood</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Food Recommendations</h1>
-        <nav>
-            <button onclick=" window.location.href='index.html'">Home</button>
-            <button onclick=" window.location.href='profile.html'">Profile</button>
-            <button onclick=" window.location.href='login.html'">Login</button>
-        </nav>
-    </header>
-    <main>
-        <section class="mood-input">
-            <h2>Select Your Mood</h2>
-            <div class="emoji-list">
-                <span onclick="selectMood('happy')" class="emoji">😊</span>
-                <span onclick="selectMood('sad')" class="emoji">😢</span>
-                <span onclick="selectMood('tired')" class="emoji">😴</span>
-                <span onclick="selectMood('angry')" class="emoji">😡</span>
-                <span onclick="selectMood('excited')" class="emoji">🤩</span>
-                <span onclick="selectMood('stressed')" class="emoji">😰</span>
-            </div>
-        </section>
-        <section class="meal-suggestions" id="mealSuggestions">
-            <h2>Recommended Meals</h2>
-            <!-- Meal suggestions will be dynamically added here -->
-        </section>
-    </main>
-    <script src="script.js" defer></script>
+  <header>
+    <nav>
+      <h1>MoodFood</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recommendations.html">Recommendations</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="recommendations-page">
+    <section class="recommendations-hero">
+      <h2>Choose Your Mood</h2>
+      <p>Select how you feel and get food suggestions that match your mood.</p>
+    </section>
+
+    <section class="mood-section">
+      <div class="mood-grid">
+        <button class="mood-card" onclick="selectMood('happy')">😊 Happy</button>
+        <button class="mood-card" onclick="selectMood('sad')">😢 Sad</button>
+        <button class="mood-card" onclick="selectMood('tired')">😴 Tired</button>
+        <button class="mood-card" onclick="selectMood('angry')">😠 Angry</button>
+        <button class="mood-card" onclick="selectMood('excited')">🤩 Excited</button>
+        <button class="mood-card" onclick="selectMood('stressed')">😫 Stressed</button>
+      </div>
+    </section>
+
+    <section id="mealSuggestions" class="meal-suggestions">
+      <h2>Recommended Meals</h2>
+      <p>Your food suggestions will appear here after you select a mood.</p>
+    </section>
+  </main>
 </body>
 </html>
