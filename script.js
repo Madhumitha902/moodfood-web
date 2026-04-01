@@ -1,3 +1,10 @@
+localStorage.setItem("lastMood", mood);
+function loadLastMood() {
+  const lastMood = localStorage.getItem("lastMood");
+  if (lastMood) {
+    selectMood(lastMood);
+  }
+}
 function getCurrentPage() {
   return window.location.pathname.split("/").pop().toLowerCase();
 }
